@@ -12,6 +12,11 @@ class UserState(private val repository: UserRepository) {
         repository.insertEntity(localUser)
     }
 
+    fun deleteUser(user: LocalUser) {
+        repository.deleteEntity(user)
+        refresh()
+    }
+
     fun refresh(){
         //keeps it within scope
         users.apply{

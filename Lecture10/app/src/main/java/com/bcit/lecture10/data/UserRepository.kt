@@ -5,7 +5,11 @@ class UserRepository(private val userDao: UserDao) {
     //all business logic goes here
 
     fun insertEntity(user: LocalUser){
-        userDao.add(user)
+        userDao.insert(user)
+    }
+
+    fun deleteEntity(user: LocalUser){
+        userDao.delete(user)
     }
 
     fun getAll(): List<LocalUser>{

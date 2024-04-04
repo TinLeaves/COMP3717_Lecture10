@@ -5,6 +5,26 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 
 class SignupState{
+
+    // uid
+    var uid by mutableStateOf("")
+
+    val onUidChanged: (String) -> Unit = { newUid ->
+        uid = newUid
+        validUid = uid.isInt()
+    }
+
+    var validUid by mutableStateOf(false)
+
+    fun String.isInt(): Boolean {
+        return try {
+            this.toInt()
+            true
+        } catch (e: NumberFormatException) {
+            false
+        }
+    }
+
     //username
     var username by mutableStateOf("")
 
